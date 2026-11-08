@@ -1,0 +1,25 @@
+# flight data and results (contain locations) -- never commit
+flights/
+logs/
+*.ubx
+*.obs
+*.nav
+*.pos
+*.pos.stat
+*.csv
+*.zip
+*.[0-9][0-9][oOnNgGpPdD]
+*.rnx
+*.crx
+*.gz
+
+# downloaded tools (python processing/setup_tools.py)
+processing/tools/
+
+# local settings / python
+processing/ppk_gui_settings.json
+__pycache__/
+*.pyc
+
+# private documents
+*.pdf

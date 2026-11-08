@@ -1,0 +1,17 @@
+# Raspberry Pi field logger. Install (on the Pi, from the repo folder):
+#   sudo cp logger/pi/hotshoe-logger.service /etc/systemd/system/
+#   sudo nano /etc/systemd/system/hotshoe-logger.service     # fix the path below to where the repo is
+#   sudo systemctl daemon-reload && sudo systemctl enable --now hotshoe-logger
+# Sessions go to ~<owner of pi_logger.py>/flights; RINEX needs RTKLIB convbin in ~/bin or ~/.local/bin.
+[Unit]
+Description=Hot shoe + u-blox field logger (raw GNSS + photo times)
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/hotshoe-geotag/logger/pi/pi_logger.py run
+Restart=always
+RestartSec=3
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target
